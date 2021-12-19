@@ -10,6 +10,9 @@ struct MockMemoryTable: public MemoryTable{
             {"weight", 50.8},
         });
     }
+    std::list<RowType> &getRows(){
+        return rows;
+    }
 };
 
 TEST(MemoryTable, degree){
@@ -29,3 +32,27 @@ TEST(MemoryTable, end){
     MockMemoryTable table;
     EXPECT_EQ(table.end(), ++table.begin());
 }
+TEST(MemoryTable, cardinality){
+    MockMemoryTable table;
+    EXPECT_EQ(table.cardinality(), 1);
+}
+
+TEST(MemoryTable, insert){
+    MockMemoryTable table;
+    std::list<RowType> &rows = table.getRows();
+    table.insert({
+        {"name", "HAHA"},
+        {"age", 28},
+        {"weight", 78.8},
+    });
+    EXPECT_EQ(rows.size(), 2);
+}
+
+TEST(MemoryTable, removeAll){
+    MockMemoryTable table;
+    std::size_t remove_number = table.remove([](RowType) -> bool {
+        return true;
+    });
+    EXPECT_EQ(remove_number, 1);
+}
+
