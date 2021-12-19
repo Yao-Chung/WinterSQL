@@ -3,6 +3,7 @@
 
 #include <optional>
 
-using Site = std::optional;
+template<typename T>
+using Site = std::optional<T>;
 
 #endif
