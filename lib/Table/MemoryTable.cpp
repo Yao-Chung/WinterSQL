@@ -13,5 +13,11 @@ std::size_t MemoryTable::cardinality(){
 std::size_t MemoryTable::degree(){
     
 }
-    // template<class T> T::iterator begin();
-    // template<class T> T::iterator end();
+
+MemoryTable::iterator MemoryTable::begin(){
+    return rows.begin();
+}
+
+MemoryTable::iterator MemoryTable::end(){
+    return rows.end();
+}
