@@ -19,4 +19,5 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(lib)
 
+enable_testing()
 add_subdirectory(test)
