@@ -7,3 +7,5 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 
 include_directories(include)
+
+add_subdirectory(lib)
