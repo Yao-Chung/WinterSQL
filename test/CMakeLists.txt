@@ -1,5 +1,5 @@
 add_executable(unittest
-  test.cpp
+  Table/MemoryTable.cpp
 )
 target_link_libraries(unittest
   gtest_main
