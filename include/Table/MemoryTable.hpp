@@ -3,8 +3,8 @@
 
 #include <Table/Table.hpp>
 #include <list>
-class MemoryTable : public Table<std::unordered_set<RowType>::iterator>{
-private:
+class MemoryTable : public Table<std::list<RowType>::iterator>{
+protected:
     std::list<RowType> rows;
 public:
     void insert(RowType row);
@@ -12,7 +12,7 @@ public:
     std::size_t cardinality();
     std::size_t degree();
 
-    using iterator = std::unordered_set<RowType>::iterator;
+    using iterator = std::list<RowType>::iterator;
     iterator begin();
     iterator end();
 };

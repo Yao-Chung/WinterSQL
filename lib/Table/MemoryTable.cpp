@@ -1,7 +1,7 @@
 #include <Table/MemoryTable.hpp>
 
 void MemoryTable::insert(RowType row){
-    rows.insert(row);
+    rows.push_back(row);
 }
 
 std::size_t MemoryTable::remove(std::function<bool(RowType)> filter){
