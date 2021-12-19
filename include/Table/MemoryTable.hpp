@@ -2,11 +2,10 @@
 #define MemoryTable_GUARD
 
 #include <Table/Table.hpp>
-#include <unordered_set>
-
+#include <list>
 class MemoryTable : public Table<std::unordered_set<RowType>::iterator>{
 private:
-    std::unordered_set<RowType> rows;
+    std::list<RowType> rows;
 public:
     void insert(RowType row);
     std::size_t remove(std::function<bool(RowType)> filter);

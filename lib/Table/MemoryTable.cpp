@@ -6,8 +6,8 @@ void MemoryTable::insert(RowType row){
 
 std::size_t MemoryTable::remove(std::function<bool(RowType)> filter){
     std::size_t remove_number = 0;
-    for(auto row: rows){
-        if(filter(row) == true){
+    for(auto row=rows.begin(); row!=rows.end(); ++row){
+        if(filter(*row) == true){
             rows.erase(row);
             remove_number += 1;
         }
