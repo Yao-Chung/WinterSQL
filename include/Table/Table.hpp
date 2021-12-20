@@ -5,6 +5,9 @@
 #include <iterator>
 #include <functional>
 #include <RowType.hpp>
+#include <Column.hpp>
+#include <list>
+#include <map>
 
 template<class Iter>
 struct Table{
@@ -15,6 +18,12 @@ struct Table{
 
     virtual Iter begin() = 0;
     virtual Iter end() = 0;
+};
+
+struct TableDescriptor{
+    std::map<std::string, ColumnDescriptor> columns;
+    std::string superTable;
+    std::list<std::string> derivedTables;
 };
 
 #endif
